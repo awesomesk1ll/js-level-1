@@ -1,0 +1,36 @@
+body {
+	padding-left: 50px;
+	padding-top: 50px;
+	background: linear-gradient(to right, #333333, #5e5e5e);
+	color:white;
+	font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 16px;
+  padding: 4px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+}
+
+.btn:focus {
+	outline:none;
+	background-color: #dddddd;
+}
+
+.lessons{
+	font-weight:bold;
+}
+
+.attention{
+	font-size:14px;
+}
