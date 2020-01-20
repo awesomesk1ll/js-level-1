@@ -1,8 +1,16 @@
-//Прописываем кнопкам функции по тому что на них написано
-var btns = document.getElementsByTagName("Button"); //DOMCollection
-[].forEach.call(btns, function(btn) {
-    btn.setAttribute("onclick", "cl(); lesson" + btn.parentNode.innerText.substr(5, 1) + "_" + btn.innerText);
-}); // разобрался с forEach
+// генерация html
+var lessons = [4, 8];
+document.write("<h2>Домашние задания Javascript - 1 уровень. Схоменко Алексей</h2>");
+document.write("<p class='attention'>Для запуска функции нажмите на кнопку. Все результаты выводятся в консоль.</p>");
+document.write("Очищать консоль перед выполнением?");
+document.write("<input type='checkbox' id='clear' checked></input>");
+for (q = 0; q < lessons.length; q++) {
+    document.write("<p class='lessons'>Урок " + (q + 1) + ".");
+    for (w = 1; w - 1 < lessons[q]; w++) {
+        document.write("<button class='btn' onclick='cl(); lesson" + (q + 1) + "_task" + w + "()'>task" + w + "()</button>");
+    }
+    document.write("</p>");
+}
 
 //для очистки консоли
 function cl() {
@@ -101,13 +109,13 @@ function lesson2_task4() {
     var a = 12
     switch (a) {
         case 12:
-            log(12);
+            log(a++);
         case 13:
-            log(13);
+            log(a++);
         case 14:
-            log(14);
+            log(a++);
         case 15:
-            log(15);
+            log(a++);
     }
 }
 
