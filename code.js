@@ -1,25 +1,37 @@
 // генерация html
-var lessons = [4, 8];
-document.write("<h2>Домашние задания Javascript - 1 уровень. Схоменко Алексей</h2>");
-document.write("<p class='attention'>Для запуска функции нажмите на кнопку. Все результаты выводятся в консоль.</p>");
-document.write("Очищать консоль перед выполнением?");
-document.write("<input type='checkbox' id='clear' checked></input>");
-for (q = 0; q < lessons.length; q++) {
-    document.write("<p class='lessons'>Урок " + (q + 1) + ".");
-    for (w = 1; w - 1 < lessons[q]; w++) {
-        document.write("<button class='btn' onclick='cl(); lesson" + (q + 1) + "_task" + w + "()'>task" + w + "()</button>");
+var lessons = [4, 8, 5];
+htmlgen();
+var logger = document.getElementById("logger");
+
+function htmlgen() {
+    document.write("<h2>Домашние задания Javascript - 1 уровень. Схоменко Алексей</h2>");
+    document.write("<p class='attention'>Для запуска функции нажмите на кнопку. Все результаты выводятся в консоль.</p>");
+    document.write("Очищать консоль перед выполнением?");
+    document.write("<input type='checkbox' id='clear' checked></input>");
+    for (q = 0; q < lessons.length; q++) {
+        document.write("<p class='lessons'>Урок " + (q + 1) + ".");
+        for (w = 1; w <= lessons[q]; w++) {
+            document.write("<button class='btn' onclick='cl(); lesson" + (q + 1) + "_task" + w + "()'>task" + w + "()</button>");
+        }
+        document.write("</p>");
     }
-    document.write("</p>");
+    document.write("<div class='log'>console.log() вывод:");
+    document.write("<div id='logger'></div>");
+    document.write("</div>");
 }
 
 //для очистки консоли
 function cl() {
-    if (document.getElementById('clear').checked == true) console.clear();
+    if (document.getElementById("clear").checked == true) {
+        console.clear();
+        logger.innerHTML = "";
+    }
 }
 
 //для упрощения
 function log(text) {
     console.log(text);
+    logger.innerHTML += text + "<br>";
 }
 
 //перевод градусов цельсия в фаренгейтские
@@ -68,7 +80,7 @@ function lesson2_task1() {
     log("c = (2+ ++a); alert(c); // 5");
     log("Ответ: При инициализации переменной 'с' мы увеличили 'а' до 2, а в данном выражении префиксная запись возвратит постинкремент (3), 2 + 3 = 5.");
     log("d = (2+ b++); alert(d); // 4");
-    log("Ответ: При инициализации переменной 'd' мы увеличили 'b' до 2, а в данном выражении префиксная запись возвратит преинкремент (2), 2 + 2 = 4.");
+    log("Ответ: При инициализации переменной 'd' мы увеличили 'b' до 2, а в данном выражении постфиксная запись возвратит преинкремент (2), 2 + 2 = 4.");
     log("Ответ: Хотя само число 'b', также как и 'a' при этом уже станет равно 3.");
     log("alert(a);               // 3");
     log("alert(b);               // 3");
@@ -116,6 +128,10 @@ function lesson2_task4() {
             log(a++);
         case 15:
             log(a++);
+            break
+        default:
+            //log("Error text");
+            break
     }
 }
 
@@ -133,14 +149,17 @@ function multiplication(a, b) {
 }
 
 function division(a, b) {
-    return a / b
+    if (!b) {
+        log("Вообще на ноль делить нельзя!")
+    }
+    return a / b //(b != 0) ? a / b : "Infinity";
 }
 
 function lesson2_task5() {
     log("Сложение (2+3): " + addition(2, 3));
     log("Вычитание (3-1): " + subtraction(3, 1));
     log("Умножение (3*3): " + multiplication(3, 3));
-    log("Деление (1/0): " + division(3, 0));
+    log("Деление (1/0): " + division(1, 0));
 }
 
 
@@ -184,12 +203,7 @@ function lesson2_task7() {
 //8) *С помощью рекурсии организовать функцию возведения числа в степень. 
 //Формат: function power(val, pow), где val – заданное число, pow – степень.
 function power(val, pow) {
-    //log("val - "+val+",pow - "+pow);
-    if (pow == true) {
-        return val;
-    } else {
-        return val * power(val, pow - 1);
-    }
+    return !pow ? 1 : val * power(val, pow - 1)
 }
 
 function lesson2_task8() {
@@ -198,6 +212,60 @@ function lesson2_task8() {
     log("т.е. при первой так называемой итерации, функция будет возвращать 2 * power(2,3),");
     log("т.е. при второй функция будет возвращать 2 * 2 * power(2,2),");
     log("т.е. при третьей функция будет возвращать 2 * 2 * 2 * power(2,1),");
-    log("В последнем случае, т.к. степень равна 1 функция возвращает просто значение, без вызова самой себя.");
-    log("Таким образом в результат первого вызова по сути подставляется return 2 * 2 * 2 * 2.");
+    log("т.е. при четвертой функция будет возвращать 2 * 2 * 2 * 2 * power(2,0),");
+    log("В последнем случае, т.к. степень равна 0 функция возвращает домножение на единицу, без вызова самой себя.");
+    log("Таким образом в результат первого вызова по сути подставляется return 2 * 2 * 2 * 2 * 1.");
+}
+
+// метод перебора делителей
+function isPrime(n) {
+    var i = 2,
+        j = false;
+
+    if (n <= 1) return false // не подходит
+
+    while (i * i <= n && !j) {
+        if (n % i == 0) {
+            j = true;
+        }
+        i++;
+    }
+    return !j
+}
+
+function lesson3_task1() {
+    var counter = 0;
+    while (counter <= 100) {
+        if (isPrime(counter)) {
+            log(counter);
+        }
+        counter++;
+    }
+}
+
+function lesson3_task2() {
+    log("quote('Сергей Твардовский','Не делать')");
+}
+
+function lesson3_task3() {
+    log("quote('Сергей Твардовский','Не делать')");
+}
+
+//4.*Вывести с помощью цикла for числа от 0 до 9, не используя тело цикла.
+function lesson3_task4() {
+    for (i = 0; i <= 9; log(i++)) {
+        // здесь пусто ;
+    }
+}
+
+function pyramid(str, lines) {
+    if (lines) {
+        log(str);
+        str += str.substr(0, 1);
+        pyramid(str, lines - 1);
+    }
+}
+
+function lesson3_task5() {
+    pyramid("x", 20);
 }
