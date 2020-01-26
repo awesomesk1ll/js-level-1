@@ -1,5 +1,5 @@
 // генерация html
-let lessons = [4, 8, 5];
+let lessons = [4, 8, 5, 2];
 htmlgen();
 let logger = document.getElementById("logger");
 
