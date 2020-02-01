@@ -1,4 +1,7 @@
 # js-level-1
+
+![Image of Yaktocat](https://geekbrains.ru/favicon-196x196.png)
+
 My homeworks on JavaScript language from js level 1 education..
 
 At 'master' branch keeps passed homeworks.
