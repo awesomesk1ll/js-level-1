@@ -6,6 +6,7 @@ function lesson5_task4() {
 
     if (lesson_5_shop_ready == false) {
         log("Режим магазина! Добавляйте товары в корзину!");
+		log("Товары отображаются в нижней части страницы.");
         log("Для того что бы скрыть магазин, нажмите на кнопку task4() ещё раз.");
         lesson_5_shop_ready = true;
         $catalog.classList.remove('hide');

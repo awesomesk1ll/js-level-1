@@ -59,6 +59,6 @@ input[type="checkbox"] {
 }
 
 #logger {
-    height: 22em;
+    height: 20em;
     overflow: auto;
 }

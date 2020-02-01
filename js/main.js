@@ -15,10 +15,10 @@ function htmlgen() {
         }
         document.write("</p>");
     }
-	document.write("<div id='catalog'></div><br>");
     document.write("<div class='log'>console.log() вывод:");
     document.write("<div id='logger'></div>");
-    document.write("</div>");
+    document.write("</div><br>");
+	document.write("<div id='catalog'></div><br>");
 }
 
 //для очистки консоли
