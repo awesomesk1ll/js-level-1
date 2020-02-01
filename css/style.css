@@ -1,0 +1,64 @@
+body {
+    padding-left: 50px;
+    background: linear-gradient(to right, #333333, #5e5e5e);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+}
+
+.btn {
+    background-color: #f1f1f1;
+    color: black;
+    font-size: 16px;
+    padding: 4px 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    text-align: center;
+    margin: 0px 3px 3px 3px;
+}
+
+.btn:hover {
+    background-color: black;
+    color: white;
+}
+
+.btn:focus {
+    outline: none;
+    background-color: #dddddd;
+}
+
+.lessons {
+    font-weight: bold;
+}
+
+.attention {
+    font-size: 14px;
+}
+
+input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    transform: translate(0, 5px);
+}
+
+.log {
+    background-color: #222;
+    color: #ccc;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Roboto Mono', monospace;
+    position: relative;
+    outline: white 2px solid;
+    max-width: 80%;
+}
+
+.log:first-line {
+    font-weight: bold;
+    background: #585858;
+    display: inline-block;
+}
+
+#logger {
+    height: 22em;
+    overflow: auto;
+}

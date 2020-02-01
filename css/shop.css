@@ -1,0 +1,22 @@
+#catalog {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.product {
+    margin: 5px;
+}
+
+#cart {
+    position: fixed;
+    top: 45px;
+    left: 80%;
+}
+
+.no-marg {
+    margin: 0;
+}
+
+.hide {
+    display: none !important
+}

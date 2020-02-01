@@ -1,5 +1,5 @@
 // генерация html
-let lessons = [4, 8, 5, 2 + 1]; // +1 по функционалу корзины
+let lessons = [4, 8, 5, 2 + 1, 3 + 1]; // +1 по функционалу корзины
 htmlgen();
 let logger = document.getElementById("logger");
 
@@ -15,6 +15,7 @@ function htmlgen() {
         }
         document.write("</p>");
     }
+	document.write("<div id='catalog'></div><br>");
     document.write("<div class='log'>console.log() вывод:");
     document.write("<div id='logger'></div>");
     document.write("</div>");
