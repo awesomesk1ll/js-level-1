@@ -115,7 +115,8 @@ let cart = {
         //build
         let $catalog = document.querySelector('#catalog');
         let $cart = document.createElement('div');
-        $cart.classList.add('hide');
+        $cart.classList.add('log');
+		$cart.classList.add('hide');
         let $cart_wiper = document.createElement('div');
         let $summary_quantity = document.createElement('div');
         let $summary_cart_price = document.createElement('div');
