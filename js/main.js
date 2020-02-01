@@ -1,5 +1,5 @@
 // генерация html
-let lessons = [4, 8, 5];
+let lessons = [4, 8, 5, 2 + 1]; // +1 по функционалу корзины
 htmlgen();
 let logger = document.getElementById("logger");
 
