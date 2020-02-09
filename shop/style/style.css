@@ -164,8 +164,10 @@ button[name='count-modifier'] {
 button[name="remove"] {
     min-width: 60px;
     min-height: 30px;
+}
+button[name="remove"]:after {
 	font-weight:bold;
-	color:red;
+	content: "❌"; /* https://en.wikipedia.org/wiki/X_mark ❌	U+274C	CROSS MARK */
 }
 
 input[name="quantity"] {
@@ -196,7 +198,11 @@ input[name="quantity"] {
     margin-top: 15px;
     font-size: 0.75em;
 }
-
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
 .right-block {
     text-align: right;
 }
